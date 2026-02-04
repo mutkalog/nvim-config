@@ -1,10 +1,10 @@
 local opt = vim.opt
 
 opt.expandtab = true
-opt.shiftwidth = 2
+opt.shiftwidth = 4
 opt.smartindent = true
-opt.tabstop = 2
-opt.softtabstop = 2
+opt.tabstop = 4
+opt.softtabstop = 4
 
 opt.termguicolors = true
 
@@ -27,6 +27,8 @@ vim.keymap.set('n', '<c-j>', ':wincmd j<CR>')
 vim.keymap.set('n', '<c-h>', ':wincmd h<CR>')
 vim.keymap.set('n', '<c-l>', ':wincmd l<CR>')
 
+vim.keymap.set('n', '<c-s>', ":w<return>")
+
 vim.keymap.set('n', "<leader>n",  "<cmd> set nu! <CR>") -- set line numbers
 vim.keymap.set('n', "<leader>rn",  "<cmd> set rnu! <CR>") -- relative numbers
 vim.keymap.set('n', "<leader>b",  "<cmd> enew <CR>") -- new buffer
@@ -40,7 +42,7 @@ opt.splitright = true
 opt.timeoutlen = 400
 opt.undofile = true
 vim.cmd [[autocmd BufEnter * set fo-=c fo-=r fo-=o]]
-vim.keymap.set('n', "<esc><esc>",  ":noh<return>") -- new buffer
+vim.keymap.set('n', "<esc><esc>",  ":noh<return>") -- clear highlighting
 
 
 -- interval for writing swap file to disk, also used by gitsigns
@@ -69,7 +71,5 @@ imap /*<CR> /*<CR>*/<ESC>O
 " Сохранить все файлы и собрать проект (цель all в Makefile).
 map <F7> :wall \| make all<Cr>
 " Запустить проект (цель run в Makefile). 
- map <F8> :make run<Cr>
-" Показать отчет о векторизации
-map <F9> :make vec<Cr>
+map <F8> :make run<Cr>
 ]])

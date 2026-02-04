@@ -4,7 +4,7 @@ return {
   },
   {
     "nvim-telescope/telescope.nvim",
-    tag = "0.1.5",
+    --tag = "0.1.5",
     dependencies = { "nvim-lua/plenary.nvim" },
     config = function()
       require("telescope").setup({
@@ -23,7 +23,6 @@ return {
 
       vim.keymap.set("n", "<leader>gc", builtin.git_commits, {}) -- git commits
       vim.keymap.set("n", "<leader>gs", builtin.git_status, {}) -- git status
-
 
       require("telescope").load_extension("ui-select")
     end,
