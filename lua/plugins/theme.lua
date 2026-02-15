@@ -1,5 +1,7 @@
 return {
   'talha-akram/noctis.nvim',
-  --require("noctis").setup()
-  --vim.cmd("colorscheme noctis")
+  priority = 1000,
+  config = function()
+      vim.cmd("colorscheme noctis")
+  end
 }

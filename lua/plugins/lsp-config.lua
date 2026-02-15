@@ -31,7 +31,8 @@ return {
                 capabilities = capabilities
             })
             lspconfig.clangd.setup {
-                capabilities = capabilities,
+                --capabilities = capabilities,
+                cmd = {"clangd", "--background-index", "--clang-tidy"},
                 filetypes = { "cpp", "c" },
             }
             lspconfig.pyright.setup {
