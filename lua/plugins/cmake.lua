@@ -9,6 +9,7 @@ return
             vim.keymap.set("n", "<Leader>ct", ":CMakeSelectBuildType<CR>")
             vim.keymap.set("n", "<Leader>cl", ":CMakeSelectLaunchTarget<CR>")
             vim.keymap.set("n", "<Leader>cbt", ":CMakeSelectBuildTarget<CR>")
+            vim.keymap.set("n", "<Leader>cp", ":CMakeSelectConfigurePreset<CR>")
             vim.keymap.set("n", "<Leader>cb", ":CMakeBuild<CR>")
             vim.keymap.set("n", "<Leader>cr", ":CMakeRun<CR>")
 
@@ -32,7 +33,8 @@ return
                     end
                 end,
                 cmake_compile_commands_options = {
-                    action = "soft_link", -- available options: soft_link, copy, lsp, none
+                    -- action = "soft_link", -- available options: soft_link, copy, lsp, none
+                    action = "lsp", -- available options: soft_link, copy, lsp, none
                     -- soft_link: this will automatically make a soft link from compile commands file to target
                     -- copy:      this will automatically copy compile commands file to target
                     -- lsp:       this will automatically set compile commands file location using lsp
@@ -59,12 +61,12 @@ return
                         quickfix = {
                             show = "always",                -- "always", "only_on_error"
                             position = "rightbelow",        -- "vertical", "horizontal", "leftabove", "aboveleft", "rightbelow", "belowright", "topleft", "botright", use `:h vertical` for example to see help on them
-                            size = 10,
+                            size = 15,
                             encoding = "utf-8",             -- if encoding is not "utf-8", it will be converted to "utf-8" using `vim.fn.iconv`
                             auto_close_when_success = true, -- typically, you can use it with the "always" option; it will auto-close the quickfix buffer if the execution is successful.
                         },
                         toggleterm = {
-                            direction = "float",   -- 'vertical' | 'horizontal' | 'tab' | 'float'
+                            direction = "tab",   -- 'vertical' | 'horizontal' | 'tab' | 'float'
                             close_on_exit = false, -- whether close the terminal when exit
                             auto_scroll = true,    -- whether auto scroll to the bottom
                             singleton = true,      -- single instance, autocloses the opened one, if present
@@ -110,7 +112,7 @@ return
                         quickfix = {
                             show = "always",         -- "always", "only_on_error"
                             position = "belowright", -- "bottom", "top"
-                            size = 10,
+                            size = 15,
                             encoding = "utf-8",
                             auto_close_when_success = true, -- typically, you can use it with the "always" option; it will auto-close the quickfix buffer if the execution is successful.
                         },
