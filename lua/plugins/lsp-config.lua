@@ -32,7 +32,7 @@ return {
             })
             lspconfig.clangd.setup {
                 --capabilities = capabilities,
-                cmd = {"clangd", "--background-index", "--clang-tidy"},
+                cmd = { "clangd", "--background-index", "--clang-tidy" },
                 filetypes = { "cpp", "c" },
             }
             lspconfig.pyright.setup {
@@ -49,24 +49,16 @@ return {
             }
 
 
-            vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
-            vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, {})
-            vim.keymap.set("n", "<leader>gr", vim.lsp.buf.references, {})
-            vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, {})
-            vim.keymap.set("n", "<leader>fm", vim.lsp.buf.format, {})
+            vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "List information about the symbol under cursor" })
+            vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, { desc = "Go to the definition" })
+            vim.keymap.set("n", "<leader>ds", vim.lsp.buf.document_symbol, { desc = "List document symbols" })
+            vim.keymap.set("n", "<leader>fr", vim.lsp.buf.references, { desc = "List all references of the symbol under cursor" })
+            vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "List code actions" })
+            vim.keymap.set("n", "<leader>fm", vim.lsp.buf.format, { desc = "Format file" })
+            vim.keymap.set("v", "<leader>fm", vim.lsp.buf.format, { desc = "Format selection" })
+            vim.keymap.set("n", "<leader>ic", vim.lsp.buf.incoming_calls, { desc = "List all the call sites of the symbol under cursor" })
+            vim.keymap.set("n", "<leader>rs", vim.lsp.buf.rename, { desc = "Rename the symbol under cursor" })
+            vim.keymap.set("n",  "<leader>ch", ":ClangdSwitchSourceHeader<CR>", { desc = "Switch between source and header" })
         end,
-    },
-    --  {
-    --    "jose-elias-alvarez/null-ls.nvim",
-    --    event = "VeryLazy",
-    --    opts = function()
-    --      sources = {
-    --        require("null-ls").builtins.formatting.clang_format,
-    --        require("null-ls").builtins.formatting.black,
-    --        require("null-ls").builtins.diagnostics.mypy,
-    --        require("null-ls").builtins.diagnostics.ruff,
-    --      }
-    --    end,
-    --  },
-
+    }
 }

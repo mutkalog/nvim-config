@@ -9,7 +9,8 @@ return
             vim.keymap.set("n", "<Leader>ct", ":CMakeSelectBuildType<CR>")
             vim.keymap.set("n", "<Leader>cl", ":CMakeSelectLaunchTarget<CR>")
             vim.keymap.set("n", "<Leader>cbt", ":CMakeSelectBuildTarget<CR>")
-            vim.keymap.set("n", "<Leader>cp", ":CMakeSelectConfigurePreset<CR>")
+            vim.keymap.set("n", "<Leader>ccp", ":CMakeSelectConfigurePreset<CR>")
+            vim.keymap.set("n", "<Leader>cbp", ":CMakeSelectBuildPreset<CR>")
             vim.keymap.set("n", "<Leader>cb", ":CMakeBuild<CR>")
             vim.keymap.set("n", "<Leader>cr", ":CMakeRun<CR>")
 
@@ -33,8 +34,7 @@ return
                     end
                 end,
                 cmake_compile_commands_options = {
-                    -- action = "soft_link", -- available options: soft_link, copy, lsp, none
-                    action = "lsp", -- available options: soft_link, copy, lsp, none
+                    action = "copy", -- available options: soft_link, copy, lsp, none
                     -- soft_link: this will automatically make a soft link from compile commands file to target
                     -- copy:      this will automatically copy compile commands file to target
                     -- lsp:       this will automatically set compile commands file location using lsp
@@ -55,7 +55,7 @@ return
                     console = "integratedTerminal",
                 },
                 cmake_executor = {                          -- executor to use
-                    name = "quickfix",                      -- name of the executor
+                    name = "toggleterm",                    -- name of the executor
                     opts = {},                              -- the options the executor will get, possible values depend on the executor type. See `default_opts` for possible values.
                     default_opts = {                        -- a list of default and possible values for executors
                         quickfix = {
@@ -66,10 +66,12 @@ return
                             auto_close_when_success = true, -- typically, you can use it with the "always" option; it will auto-close the quickfix buffer if the execution is successful.
                         },
                         toggleterm = {
-                            direction = "tab",   -- 'vertical' | 'horizontal' | 'tab' | 'float'
+                            direction = "horizontal",   -- 'vertical' | 'horizontal' | 'tab' | 'float'
                             close_on_exit = false, -- whether close the terminal when exit
                             auto_scroll = true,    -- whether auto scroll to the bottom
                             singleton = true,      -- single instance, autocloses the opened one, if present
+                            auto_close_when_success = false, -- typically, you can use it with the "always" option; it will auto-close the quickfix buffer if the execution is successful.
+
                         },
                         overseer = {
                             new_task_opts = {
@@ -106,7 +108,7 @@ return
                     },
                 },
                 cmake_runner = {                     -- runner to use
-                    name = "terminal",               -- name of the runner
+                    name = "toggleterm",             -- name of the runner
                     opts = {},                       -- the options the runner will get, possible values depend on the runner type. See `default_opts` for possible values.
                     default_opts = {                 -- a list of default and possible values for runners
                         quickfix = {
