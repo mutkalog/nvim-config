@@ -27,13 +27,19 @@ vim.keymap.set('n', '<c-j>', ':wincmd j<CR>')
 vim.keymap.set('n', '<c-h>', ':wincmd h<CR>')
 vim.keymap.set('n', '<c-l>', ':wincmd l<CR>')
 
+-- windows resize 
+vim.keymap.set('n', '<M-h>', '<C-w><')
+vim.keymap.set('n', '<M-l>', '<C-w>>')
+vim.keymap.set('n', '<M-k>', '<C-w>+')
+vim.keymap.set('n', '<M-j>', '<C-w>-')
+
 vim.keymap.set('n', '<c-s>', ":w<return>")
 
-vim.keymap.set('n', "<leader>n",  "<cmd> set nu! <CR>") -- set line numbers
-vim.keymap.set('n', "<leader>rn",  "<cmd> set rnu! <CR>") -- relative numbers
-vim.keymap.set('n', "<leader>b",  "<cmd> enew <CR>") -- new buffer
+vim.keymap.set('n', "<leader>ln",  "<cmd> set nu! <CR>") -- set line numbers
+vim.keymap.set('n', "<leader>lrn",  "<cmd> set rnu! <CR>") -- relative numbers
+vim.keymap.set('n', "<leader>nb",  "<cmd> enew <CR>") -- new buffer
+vim.keymap.set('n', "<leader>nt",  "<cmd> tabnew <CR>") -- new tab
 
---vim.keymap.set('n', '<leader>h', ':nohlsearch<CR>')
 vim.wo.number = true
 
 opt.signcolumn = "yes"
