@@ -76,7 +76,7 @@ return {
             vim.keymap.set("v", "<leader>fm", vim.lsp.buf.format, { desc = "Format selection" })
             vim.keymap.set("n", "<leader>ic", vim.lsp.buf.incoming_calls, { desc = "List all the call sites of the symbol under cursor" })
             vim.keymap.set("n", "<leader>rs", vim.lsp.buf.rename, { desc = "Rename the symbol under cursor" })
-            vim.keymap.set("n", "<leader>ch", ":ClangdSwitchSourceHeader<CR>", { desc = "Switch between source and header" })
+            vim.keymap.set("n", "<leader>ch", ":LspClangdSwitchSourceHeader<CR>", { desc = "Switch between source and header" })
         end,
     }
 }
