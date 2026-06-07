@@ -17,5 +17,7 @@ require("lazy").setup("plugins")
 -- available themes:
 --  . evergarden
 --  . noctis
---  . base16-* 
-vim.cmd("colorscheme base16-black-metal-gorgoroth")
+--  . base16-* (base16-black-metal-gorgoroth)
+--  . vesper
+
+vim.cmd("colorscheme vesper")
