@@ -17,6 +17,7 @@ return {
                 "clangd",
                 "clang-format",
                 "pyright",
+                "jsonls",
                 "lua-language-server",
                 "cmake-language-server",
                 "bash-language-server",
@@ -51,6 +52,11 @@ return {
                 filetypes = { "python" },
             })
 
+            vim.lsp.config("jsonls", {
+                capabilities = capabilities,
+                filetypes = { "json" },
+            })
+
             vim.lsp.config("cmake", {
                 capabilities = capabilities,
                 filetypes = { "cmake" },
@@ -61,6 +67,7 @@ return {
                 filetypes = { "sh" },
             })
 
+            vim.lsp.enable("jsonls")
             vim.lsp.enable("lua_ls")
             vim.lsp.enable("clangd")
             vim.lsp.enable("pyright")

@@ -1,6 +1,7 @@
 return {
     {
         'numToStr/Comment.nvim',
+        lazy = false,
         opts = {
             -- Тoggler для одной строки и блочного комментирования
             toggler = {
@@ -13,9 +14,9 @@ return {
                 block = '<C-\\>',
             },
             -- Дополнительно
-            padding = true,      -- пробел после // или #
-            sticky = true,       -- курсор не прыгнет после комментирования
-            ignore = nil,        -- можно игнорировать пустые строки
+            padding = true, -- пробел после // или #
+            sticky = true,  -- курсор не прыгнет после комментирования
+            ignore = nil,   -- можно игнорировать пустые строки
         },
         config = function(_, opts)
             require('Comment').setup(opts)
