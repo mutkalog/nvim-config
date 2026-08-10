@@ -17,10 +17,11 @@ return {
                 "clangd",
                 "clang-format",
                 "pyright",
-                "jsonls",
+                "json-lsp",
                 "lua-language-server",
-                "cmake-language-server",
+                "neocmakelsp",
                 "bash-language-server",
+                "matlab-language-server",
             },
         },
     },
@@ -44,35 +45,35 @@ return {
 
             vim.lsp.config("clangd", {
                 cmd = { "clangd", "--background-index", "--clang-tidy" },
-                filetypes = { "c", "cpp" },
             })
 
             vim.lsp.config("pyright", {
                 capabilities = capabilities,
-                filetypes = { "python" },
             })
 
             vim.lsp.config("jsonls", {
                 capabilities = capabilities,
-                filetypes = { "json" },
             })
 
-            vim.lsp.config("cmake", {
+            vim.lsp.config("neocmake", {
                 capabilities = capabilities,
-                filetypes = { "cmake" },
             })
 
             vim.lsp.config("bashls", {
                 capabilities = capabilities,
-                filetypes = { "sh" },
+            })
+
+            vim.lsp.config("matlab_ls", {
+                capabilities = capabilities,
             })
 
             vim.lsp.enable("jsonls")
             vim.lsp.enable("lua_ls")
             vim.lsp.enable("clangd")
             vim.lsp.enable("pyright")
-            vim.lsp.enable("cmake")
+            vim.lsp.enable("neocmake")
             vim.lsp.enable("bashls")
+            vim.lsp.enable("matlab_ls")
 
             vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "List information about the symbol under cursor" })
             vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, { desc = "Go to the definition" })
