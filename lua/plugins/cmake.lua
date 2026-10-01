@@ -15,12 +15,12 @@ return
             vim.keymap.set("n", "<Leader>cr", ":CMakeRun<CR>")
 
             require("cmake-tools").setup {
-                cmake_command = "cmake",                                          -- this is used to specify cmake command path
-                ctest_command = "ctest",                                          -- this is used to specify ctest command path
+                cmake_command = "cmake",                                                                                 -- this is used to specify cmake command path
+                ctest_command = "ctest",                                                                                 -- this is used to specify ctest command path
                 cmake_use_preset = true,
-                cmake_regenerate_on_save = true,                                  -- auto generate when save CMakeLists.txt
-                cmake_generate_options = { "-DCMAKE_EXPORT_COMPILE_COMMANDS=1" }, -- this will be passed when invoke `CMakeGenerate`
-                cmake_build_options = {},                                         -- this will be passed when invoke `CMakeBuild`
+                cmake_regenerate_on_save = true,                                                                         -- auto generate when save CMakeLists.txt
+                cmake_generate_options = { "-DCMAKE_EXPORT_COMPILE_COMMANDS=1", "-DCMAKE_POLICY_VERSION_MINIMUM=3.5" },  -- this will be passed when invoke `CMakeGenerate`
+                cmake_build_options = {},                                                                                -- this will be passed when invoke `CMakeBuild`
                 -- support macro expansion:
                 --       ${kit}
                 --       ${kitGenerator}
@@ -66,10 +66,10 @@ return
                             auto_close_when_success = true, -- typically, you can use it with the "always" option; it will auto-close the quickfix buffer if the execution is successful.
                         },
                         toggleterm = {
-                            direction = "horizontal",   -- 'vertical' | 'horizontal' | 'tab' | 'float'
-                            close_on_exit = false, -- whether close the terminal when exit
-                            auto_scroll = true,    -- whether auto scroll to the bottom
-                            singleton = true,      -- single instance, autocloses the opened one, if present
+                            direction = "horizontal",        -- 'vertical' | 'horizontal' | 'tab' | 'float'
+                            close_on_exit = false,           -- whether close the terminal when exit
+                            auto_scroll = true,              -- whether auto scroll to the bottom
+                            singleton = true,                -- single instance, autocloses the opened one, if present
                             auto_close_when_success = false, -- typically, you can use it with the "always" option; it will auto-close the quickfix buffer if the execution is successful.
 
                         },
@@ -91,7 +91,7 @@ return
                         terminal = {
                             name = "Main Terminal",
                             prefix_name = "[CMakeTools]: ", -- This must be included and must be unique, otherwise the terminals will not work. Do not use a simple spacebar " ", or any generic name
-                            split_direction = "vertical", -- "horizontal", "vertical"
+                            split_direction = "vertical",   -- "horizontal", "vertical"
                             split_size = 11,
 
                             -- Window handling
